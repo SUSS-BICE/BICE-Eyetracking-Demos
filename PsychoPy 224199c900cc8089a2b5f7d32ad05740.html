@@ -1,0 +1,752 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>PsychoPy</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(128, 125, 120, 1);
+	fill: rgba(128, 125, 120, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(204, 121, 47, 1);
+	fill: rgba(204, 121, 47, 1);
+}
+.highlight-yellow {
+	color: rgba(195, 148, 67, 1);
+	fill: rgba(195, 148, 67, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(63, 126, 190, 1);
+	fill: rgba(63, 126, 190, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(179, 84, 136, 1);
+	fill: rgba(179, 84, 136, 1);
+}
+.highlight-red {
+	color: rgba(201, 85, 73, 1);
+	fill: rgba(201, 85, 73, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 111, 200, 0.09);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(128, 125, 120, 1);
+	fill: rgba(128, 125, 120, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(204, 121, 47, 1);
+	fill: rgba(204, 121, 47, 1);
+}
+.block-color-yellow {
+	color: rgba(195, 148, 67, 1);
+	fill: rgba(195, 148, 67, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(63, 126, 190, 1);
+	fill: rgba(63, 126, 190, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(179, 84, 136, 1);
+	fill: rgba(179, 84, 136, 1);
+}
+.block-color-red {
+	color: rgba(201, 85, 73, 1);
+	fill: rgba(201, 85, 73, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(232, 242, 250, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 99, 174, 0.172); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="224199c9-00cc-8089-a2b5-f7d32ad05740" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/met_terracotta_funerary_plaque.jpg" style="object-position:center 9.999999999999998%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">📊</span></div><h1 class="page-title">PsychoPy</h1><p class="page-description"></p></header><div class="page-body"><ul id="230199c9-00cc-8031-808d-fbbc0771d35d" class="bulleted-list"><li style="list-style-type:disc">Take note that you need to install Pupil Lab’s plugin in PsychoPy. (Refer to Neon Labs page)</li></ul><h2 id="241199c9-00cc-80ff-8764-e0321d5ab23b" class="">External Resources</h2><ul id="241199c9-00cc-8064-9d6c-f600df2d27b6" class="bulleted-list"><li style="list-style-type:disc"><strong><a href="https://www.youtube.com/watch?v=f6uNKBFN82o">PsychoPy’s ‘No-Code Eye Tracking in PsychoPy’</a></strong> tutorial displays their eye-tracking components (in beta as of writing). Most importantly, Calibration, Validation and Eyetracker Record.</li></ul><h2 id="241199c9-00cc-8037-8207-f0d036a1fc0b" class="">Syncing Neon and PsychoPy</h2><p id="241199c9-00cc-80db-80d9-f009c74f6925" class="">Note: This was such utter bullshit to get to work but ridiculously useful so ANYWAY </p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="241199c9-00cc-8008-8efd-fd9e96237507"><div style="font-size:1.5em"><span class="icon">☝🏻</span></div><div style="width:100%"><p id="241199c9-00cc-8067-913c-c0cac2f12852" class="">Is it the WiFi? Is it the computer? Is it PsychoPy? Let’s run through some troubleshooting</p></div></figure><ol type="1" id="246199c9-00cc-801c-9d07-e4a62597ff81" class="numbered-list" start="1"><li>Check if your PsychoPy version is the stable version. Take note 2025 version has introduced major code tweaks that may affect how you code your experiment so always keep an eye on updates. </li></ol><h3 id="246199c9-00cc-809a-9436-ceb796af8c7c" class="">Setting Up the Eye-Tracker Device</h3><p id="246199c9-00cc-80a0-856d-e6e172f75f64" class="">PsychoPy has beef with neon.local for some reason (jk it’s some issue with .local passing through mDNS traffic via the ioHub integration). </p><ul id="247199c9-00cc-8058-ae8a-d93da4247e83" class="bulleted-list"><li style="list-style-type:disc">Go to <strong>Experiment Settings</strong> &gt; <strong>Eyetracking</strong> &gt; <strong>Companion address</strong> &gt; <strong>[</strong>insert IP address from Companion app<strong>]</strong></li></ul><ul id="247199c9-00cc-8070-ba16-f24f1491411c" class="bulleted-list"><li style="list-style-type:disc">Go to your Command line shell and type <em><strong>ping neon.local</strong></em><ul id="247199c9-00cc-8073-a77f-eda134b08b9a" class="bulleted-list"><li style="list-style-type:circle">Check if there is any packet loss</li></ul></li></ul><p id="247199c9-00cc-802c-b638-e5a283da73e7" class="">We’ll go ahead and use <mark class="highlight-blue">pupil_labs.realtime_api.simple</mark> to print on the console whether our eye-tracker is connected. <strong><span style="border-bottom:0.05em solid">Note:</span></strong> <mark class="highlight-yellow_background">You can find the cookbook </mark><mark class="highlight-yellow_background"><a href="https://pupil-labs.github.io/pl-realtime-api/dev/methods/simple/">here</a></mark></p><ul id="247199c9-00cc-8047-b9ce-fd3d39465608" class="bulleted-list"><li style="list-style-type:disc">Insert this as a custom <strong>Code Component </strong>&gt; <mark class="highlight-orange"><strong>Begin experiment*</strong></mark> tab<ul id="248199c9-00cc-80fc-97f3-def9b1689c60" class="bulleted-list"><li style="list-style-type:circle"><em>You should place this in your Starting Instructions component</em></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="247199c9-00cc-8058-8b8e-d84a80fb9bf9" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#Discovering device
+from pupil_labs.realtime_api.simple import discover_one_device
+
+print(&quot;🔍 Attempting to discover Pupil Labs Neon device...&quot;)
+
+try:
+    device = discover_one_device(max_search_duration_seconds=5)
+    if device is None:
+        print(&quot;❌ No device found on the network. Check your connection or hostname.&quot;)
+    else:
+        print(&quot;✅ Connected to device.&quot;)
+        print(f&quot;🕶️  Glasses Serial Number: {device.serial_number_glasses}&quot;)
+        #Gaze datum is the coordinates packet being received
+        gaze = device.receive_gaze_datum()
+        print(&quot;📍 Gaze data received.&quot;)
+except Exception as e:
+    print(&quot;❌ Error while attempting to connect to device:&quot;)
+    print(e)</code></pre><h3 id="246199c9-00cc-8042-a5a7-f4f16cb405bc" class="">⚠️ The Clock Drift Issue</h3><p id="246199c9-00cc-8029-9ab9-e7ddd23ae72c" class="">Whenever we’re using two devices to simultaneously collect data, we have to be aware of the <a href="https://www.google.com/url?sa=t&amp;source=web&amp;rct=j&amp;opi=89978449&amp;url=https://en.wikipedia.org/wiki/Clock_drift&amp;ved=2ahUKEwjFnPW_0fWOAxXyoWMGHZh1MgcQFnoECBAQAQ&amp;usg=AOvVaw38n19eqj1tYtKQVY4UtDx6">clock drift issue</a>. As a result, we <strong>must</strong> account for time offset between Pupil Cloud and PsychoPy. We’ll manually calculate it down to the nanosecond before sending it to Pupil Cloud. </p><ul id="247199c9-00cc-806e-891d-ea5a84295dba" class="bulleted-list"><li style="list-style-type:disc">Insert this as a custom <strong>Code Component </strong>&gt; <mark class="highlight-orange"><strong>Begin experiment*</strong></mark> tab<ul id="248199c9-00cc-8092-9ea2-ffe32f333265" class="bulleted-list"><li style="list-style-type:circle"><em>You should place this in your Starting Instructions component</em></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="246199c9-00cc-8079-83a5-d99a8e9ad2bb" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#Estimating clock offset
+estimate = device.estimate_time_offset()
+clock_offset_ns = round(estimate.time_offset_ms.mean * 1_000_000)
+# Store device for future use
+thisExp.offset_ns = clock_offset_ns</code></pre><p id="248199c9-00cc-80a8-b626-c5840385d463" class="">Because we also want to call to the device throughout the experiment, we’re going to go ahead and store the device class as a global variable. I don’t completely understand why. Do it anyway.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="248199c9-00cc-80b8-b1c6-d14151919db5" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all"># Store device in a global variable instead (not saved)
+global pupil_device
+pupil_device = device</code></pre><h3 id="248199c9-00cc-804f-89aa-ff0006c59ae4" class="">Manually Shutting Down Connection between PsychoPy &amp; Neon</h3><p id="248199c9-00cc-801e-b949-d2a3abcd6ca9" class="">Sometimes, for reasons unknown, we have to manually shut the connection between PsychoPy and neon in order to prompt the experiment to self-terminate</p><ul id="248199c9-00cc-8033-873a-f6465bbee91a" class="bulleted-list"><li style="list-style-type:disc">Insert this as a custom <strong>Code Component </strong>&gt; <mark class="highlight-orange"><strong>End Routine*</strong></mark> tab<ul id="248199c9-00cc-806e-9070-d2a817ecf86f" class="bulleted-list"><li style="list-style-type:circle"><em>You should place this in your Ending Instructions component</em></li></ul></li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="248199c9-00cc-807b-bf28-f5043f9ba61f" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">try:
+    pupil_device.close() #Remember we stored device as a global var, pupil_device
+except Exception as e:
+    print(f&quot;⚠️ Error closing Pupil Labs device: {e}&quot;)
+#Get PsychoPy to terminate the experiment
+core.quit()</code></pre><h1 id="230199c9-00cc-80fd-ad9e-ca26083582a5" class="">Builder</h1><p id="230199c9-00cc-801b-9673-fc76260b45a8" class="">We’ll be using <mark class="highlight-blue">gaze_contingent_demo_psyexp.psyexp</mark> downloaded from Pupil Labs as our base. As we’re new, we’ll start with PsychoPy’s <strong>Builder</strong> view before moving on to the <strong>Coding</strong> view. </p><p id="231199c9-00cc-8022-84ea-d5571d86f6e6" class=""><mark class="highlight-red"><strong>Note!</strong></mark></p><ul id="231199c9-00cc-80fa-9756-ca2819edba8b" class="bulleted-list"><li style="list-style-type:disc"><strong>Builder</strong> uses the .psyexp format</li></ul><ul id="231199c9-00cc-8082-bc9b-d19dd5bbd627" class="bulleted-list"><li style="list-style-type:disc"><strong>Coder</strong> uses native Python script format .py</li></ul><figure id="230199c9-00cc-8014-935b-e005eb003b74" class="image"><a href="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-07-02_at_8.35.12_PM.png"><img style="width:576px" src="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-07-02_at_8.35.12_PM.png"/></a></figure><h2 id="230199c9-00cc-8095-88ca-eb13e573e8b8" class="">Quick Part Basics</h2><table id="230199c9-00cc-802e-b3aa-cba6f5c3c18a" class="simple-table"><thead class="simple-table-header"><tr id="230199c9-00cc-8034-b20b-d7a6f3f04a67"><th id="eFcU" class="simple-table-header-color simple-table-header"><strong>Components</strong></th><th id="|sCm" class="simple-table-header-color simple-table-header"><strong>Routines</strong></th><th id="[g[X" class="simple-table-header-color simple-table-header"><strong>Flow</strong></th></tr></thead><tbody><tr id="230199c9-00cc-8056-8f53-cb490f476844"><td id="eFcU" class="">The bit parts, like stimuli</td><td id="|sCm" class="">The timeline parts, consists of Components. Controls the time.</td><td id="[g[X" class="">The flowchart, to control order but not the time. Consists of Routines</td></tr></tbody></table><h2 id="230199c9-00cc-805d-8090-f3c1abaac394" class="">Toolbar</h2><figure id="230199c9-00cc-8024-91db-f22478154585" class="image"><a href="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-07-14_at_2.56.40_PM.png"><img style="width:709.98046875px" src="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-07-14_at_2.56.40_PM.png"/></a></figure><h2 id="240199c9-00cc-80f6-936e-e692e3069048" class="">Routine</h2><p id="240199c9-00cc-8064-926e-f3f08c0de786" class=""><strong>Things to Note:</strong></p><ul id="240199c9-00cc-80e4-be09-df7ca199c60d" class="bulleted-list"><li style="list-style-type:disc">The Routine settings dialog box: remember to set <strong>Flow </strong>&gt; <strong>$duration(s)</strong> in order to <em>set </em><em><mark class="highlight-yellow_background">a fixed duration</mark></em><em> to each component</em>. Or that shit will run indefinitely</li></ul><ul id="240199c9-00cc-8024-8ab0-ddca5eb51be1" class="bulleted-list"><li style="list-style-type:disc">Routine components are run <strong>top-down</strong>. Hence, the <span style="border-bottom:0.05em solid">order</span> in which individual components are stacked matters!</li></ul><h3 id="240199c9-00cc-8056-a9db-c3b3a6cb63fa" class="">Images</h3><p id="240199c9-00cc-802a-afc9-c67a1dddcd2c" class=""><mark class="highlight-blue"><strong>➤ Preserving Aspect Ratio</strong></mark></p><ul id="240199c9-00cc-8015-86cc-ccf096025eff" class="bulleted-list"><li style="list-style-type:disc">Setting <strong>Layout</strong> &gt; <strong>Size [w,h]</strong> to <strong>(none, ‘fixed number’)</strong> or vice versa will <em>attempt</em> to keep the file’s aspect ratio but I find that it <em>does </em>distort the image. Do the following instead<ul id="240199c9-00cc-80e1-853c-ea9573cfba8a" class="bulleted-list"><li style="list-style-type:circle">Do note that this is under the assumption that exp settings: <strong>Screen </strong>&gt;<strong> Units </strong>&gt; <strong>height</strong></li></ul><ul id="240199c9-00cc-80be-b38d-c690ded59e29" class="bulleted-list"><li style="list-style-type:circle">If there is any height constraints (i.e. can’t use 1.0 units, change accordingly)</li></ul><ul id="240199c9-00cc-80b5-b85e-cc637c6b0f83" class="bulleted-list"><li style="list-style-type:circle">⚠️ <mark class="highlight-red"><strong>Only works for local PsychoPy</strong></mark><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="240199c9-00cc-80d4-b157-f5a2ca6e3ced"><div style="font-size:1.5em"><span class="icon">☝🏻</span></div><div style="width:100%"><p id="240199c9-00cc-8014-828a-cfd2e530b83c" class=""><strong>What if I want to port everything to PsychoJS (online)?</strong></p></div></figure><ul id="240199c9-00cc-8001-93f0-e674122b7850" class="bulleted-list"><li style="list-style-type:square">You’ll need to load aspect ratio and image details in the spreadsheet. Refer <a href="https://discourse.psychopy.org/t/reading-in-image-size-or-aspect-ratio-in-psychojs/24485">here</a></li></ul></li></ul><ol type="1" id="240199c9-00cc-80b2-ac40-df0ef873b333" class="numbered-list" start="1"><li>Add a code component <mark class="highlight-red">above</mark> the image component<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="240199c9-00cc-8027-86e4-ea0521894532" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">from PIL import Image
+
+# Build full path to the image
+img_path = poster + &#x27;.jpg&#x27;  # assuming poster is a string like &quot;poster1&quot;
+
+# Load the image using PIL to get pixel size
+im = Image.open(img_path)
+img_width_px, img_height_px = im.size
+image_aspect_ratio = img_width_px / img_height_px
+
+# Get window aspect ratio from PsychoPy
+win_width_px, win_height_px = win.size
+win_aspect_ratio = win_width_px / win_height_px
+
+# Max image height in PsychoPy height units
+max_image_height = 1.0
+
+# Decide scaling based on aspect ratio
+if image_aspect_ratio &gt; win_aspect_ratio:
+    # Wider than screen: scale by width
+    image_height = max_image_height / image_aspect_ratio
+    image_size = [max_image_height, image_height]
+else:
+    # Taller: scale by height
+    image_size = [image_aspect_ratio * max_image_height, max_image_height]
+
+# Optional: print for debug
+print(f&quot;Image size set to: {image_size}&quot;)
+# Optional: print for debug
+print(&quot;Event name:&quot;, poster + &#x27;_event&#x27;)</code></pre></li></ol><ol type="1" id="240199c9-00cc-8031-9e32-d23794f37cb1" class="numbered-list" start="2"><li>Go to the Image component. <strong>Layout </strong>&gt;<strong> Size [w,h] </strong>&gt;<strong> $image_size</strong></li></ol></li></ul><h3 id="247199c9-00cc-80ad-b0b1-dd0c43f39f8e" class="">Event Annotation</h3><p id="247199c9-00cc-80ca-9264-fe1895667a40" class="">This is specifically for experiments which require an annotation to be triggered. Although Pupil Labs does have a specific <strong>plEvent</strong> component, the following code accounts for the clock drift issue</p><ul id="247199c9-00cc-803c-9040-e6ea0de81eca" class="bulleted-list"><li style="list-style-type:disc">Insert this as a custom <strong>Code Component </strong>&gt; <mark class="highlight-orange"><strong>Begin Routine*</strong></mark> tab</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="247199c9-00cc-8020-a280-cb75930c8842" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#Annotating event start
+label = poster + &quot;_start&quot;
+timestamp_ns = time.time_ns() - thisExp.offset_ns
+pupil_device.send_event(label, event_timestamp_unix_ns=timestamp_ns)</code></pre><ul id="247199c9-00cc-8046-ad17-e6b4e63377db" class="bulleted-list"><li style="list-style-type:disc">Insert this as a custom <strong>Code Component </strong>&gt; <mark class="highlight-orange"><strong>End Routine*</strong></mark> tab</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="247199c9-00cc-8023-8adb-e0f10d905392" class="code code-wrap"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">#Annotating event end
+timestamp_ns = time.time_ns() - thisExp.offset_ns
+pupil_device.send_event(poster + &quot;_end&quot;, event_timestamp_unix_ns=timestamp_ns)</code></pre><p id="247199c9-00cc-8096-9965-f94e31f1ee39" class="">Pupil Labs does have a guide on automating event annotation for OpenCV. We’re not using that but you can see the reference <a href="https://pupil-labs.github.io/pl-realtime-api/dev/cookbook/track-your-experiment-progress-using-events/">here</a>.</p><h2 id="240199c9-00cc-80f6-ae97-f68f283619fd" class="">Loop</h2><p id="240199c9-00cc-8077-9ac2-c63164e76475" class="">PsychPy requires pretty much everything to be laid out in .xlsx files when it comes to loops.</p><figure id="247199c9-00cc-80d4-a40f-ce62795822f9" class="image"><a href="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_3.53.55_PM.png"><img style="width:336px" src="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_3.53.55_PM.png"/></a></figure><p id="247199c9-00cc-8008-b94a-f46d97767636" class=""><strong>Loop Type</strong></p><table id="247199c9-00cc-80ae-ad92-dc2b866fcf17" class="simple-table"><tbody><tr id="247199c9-00cc-8073-be82-d1afc670d975"><th id="|lwH" class="simple-table-header-color simple-table-header" style="width:95px">random</th><td id="lNLa" class="" style="width:789px">present a - b in a random order. If we have nReps at 2, this would be repeated twice e.g. <code>[c, a, b, a, c, b]</code></td></tr><tr id="247199c9-00cc-80ea-8939-eecbf6c9fec3"><th id="|lwH" class="simple-table-header-color simple-table-header" style="width:95px">fullRandom</th><td id="lNLa" class="" style="width:789px">present a - b in a random order but also take into account the number of nReps i.e. imagine that rather than having 3 items in the bag that we sample from, and repeat this twice, we instead have 6 items int he bag that are randomly sampled from. This would mean that with fullRandom, but not random, it would be possible to get the following order of trials e.g. <code>[a, a, b, c, c, b]</code></td></tr><tr id="247199c9-00cc-8050-92fb-f04a31baf138"><th id="|lwH" class="simple-table-header-color simple-table-header" style="width:95px">sequential</th><td id="lNLa" class="" style="width:789px"> present the rows in the order they are set in the spreadsheet</td></tr><tr id="247199c9-00cc-80ac-87e6-d067763b1319"><th id="|lwH" class="simple-table-header-color simple-table-header" style="width:95px">staircase</th><td id="lNLa" class="" style="width:789px">for use with adaptive procedures, create an output variable called <code>level</code> that can then be used to set the parameter of a stimulus (e.g. it’s opacity) in an adaptive fashion. This allows researchers to converge upon a participants threshold by adjusting the value of <code>level</code> in accordance with performance.</td></tr><tr id="247199c9-00cc-8082-a014-d3eceff1cc1c"><th id="|lwH" class="simple-table-header-color simple-table-header" style="width:95px">interleaved staircase</th><td id="lNLa" class="" style="width:789px">for use with multiple staircases that are interleaved. This can also be used to implement other staircasing algorithms such as <a href="https://link.springer.com/content/pdf/10.3758/BF03202828.pdf">QUEST (Watson and Pelli, 1983)</a> via <code><strong>QuestHandler</strong></code></td></tr></tbody></table><p id="247199c9-00cc-8073-89ad-d2a55b26c44f" class="">We’ll talk about staircases another time</p><p id="247199c9-00cc-80b6-9dc9-cb3e0de70dd9" class="">For the sake of sanity, we’ll talk about this in the form of <strong>Trials </strong>and <strong>Blocks</strong>. As a result, we’ll be discussing a <strong>Nested Loop</strong> featuring the following:</p><ul id="247199c9-00cc-80a9-aae7-ff537d5fd52c" class="bulleted-list"><li style="list-style-type:disc">2 randomised Blocks; each block featuring 5 randomised Trials</li></ul><figure id="247199c9-00cc-80c5-ab27-f490c9c0c152" class="image"><a href="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.04.13_PM.png"><img style="width:681.9661254882812px" src="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.04.13_PM.png"/></a></figure><h3 id="247199c9-00cc-80da-8f5e-c9ea4b02fa3b" class="">Trials</h3><div id="247199c9-00cc-8036-9b2d-ebd3094ceeb8" class="column-list"><div id="247199c9-00cc-807d-bfab-f145fc343d07" style="width:33.33333333333333%" class="column"><p id="247199c9-00cc-80bf-aef7-e5eaf6b54665" class="">As you can see, we’ve specified each image stimuli to be presented in excel files. There are two files, to represent two blocks</p></div><div id="247199c9-00cc-8092-a6f5-ff950fe5b038" style="width:33.33333333333333%" class="column"><figure id="247199c9-00cc-803f-b7e3-c88265c3f71e" class="image"><a href="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.09.08_PM.png"><img style="width:144px" src="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.09.08_PM.png"/></a><figcaption>moh_poster_trials.xlsx</figcaption></figure></div><div id="247199c9-00cc-802f-8a1e-f1915d5c5c0b" style="width:33.33333333333333%" class="column"><figure id="247199c9-00cc-808c-a1d8-cb31e699bb0d" class="image"><a href="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.07.35_PM.png"><img style="width:144px" src="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.07.35_PM.png"/></a><figcaption>kkh_poster_trials.xlsx</figcaption></figure></div></div><p id="247199c9-00cc-80aa-9f09-eea4bd580e58" class="">Because we want to randomise both blocks and trials, we’ll leave the block randomisation to our outer loop. For the current inner loop, we’ll specify which excel file should run using <strong>$block, </strong>which is a reference to the column label ‘<strong>block</strong>’ that we’ve specified in blockorder.xlsx</p><ul id="247199c9-00cc-80ce-b5fd-cdd3d8b815a3" class="bulleted-list"><li style="list-style-type:disc"><strong>Conditions</strong> &gt; <mark class="highlight-red"><strong>$block</strong></mark><strong> + &#x27;_poster_trials.xlsx’</strong></li></ul><h3 id="247199c9-00cc-8067-8aa1-c1b81339ec1a" class="">Block</h3><div id="247199c9-00cc-80e9-9365-f8aa52cb5605" class="column-list"><div id="247199c9-00cc-803d-b411-c8c88903c081" style="width:50%" class="column"><p id="247199c9-00cc-8004-8c0b-de439f9106cd" class="">This excel file, blockorder.xlsx, specifies the name of our blocks− which also corresponds to group names/labels we’ve used in our trial excel files. Keep your names (and capital/non-capital letters) constant!</p><ul id="247199c9-00cc-80e9-905e-dc5981439582" class="bulleted-list"><li style="list-style-type:disc"><strong>Conditions</strong> &gt; <mark class="highlight-red"><strong>blockorder.xlsx</strong></mark></li></ul></div><div id="247199c9-00cc-80cb-a4f3-f540600a39f5" style="width:50%" class="column"><figure id="247199c9-00cc-80f8-994e-d4cef38ec3c1" class="image"><a href="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.19.51_PM.png"><img style="width:192px" src="PsychoPy%20224199c900cc8089a2b5f7d32ad05740/Screenshot_2025-08-06_at_4.19.51_PM.png"/></a><figcaption>blockorder.xlsx</figcaption></figure></div></div><p id="247199c9-00cc-80e5-89dc-cf30b280944f" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
